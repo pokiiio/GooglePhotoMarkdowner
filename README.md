@@ -1,0 +1,2 @@
+# GooglePhotoMarkdowner
+GooglePhotoにアップロードした写真を、ブログなどで貼り付けられる形式に変換するアプリです。
