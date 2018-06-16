@@ -26,7 +26,7 @@ npm install
 ```
 
 
-`npm run build-macOS`でmacOS向けのバイナリをビルドします。`npm run build-windows`でWindows向けのバイナリも作れるかもしれませんが、試してないのでわかりません。
+`npm run build-macOS`でmacOS向けのバイナリをビルドします。`npm run build-windows`でWindows向けのバイナリも作れるかもしれませんが、~~試してないのでわかりません。~~ **Windows10で問題なくビルドできました。動作も問題なさそうです。**
 
 
 ```bash
