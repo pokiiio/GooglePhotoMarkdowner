@@ -119,18 +119,46 @@
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
     <script>
+        function storeSettings() {
+            var storage = require('electron-json-storage');
+            var data = {};
+
+            data.photoSize = $("#photoSize")[0].value;
+            data.photoAlt = $("#photoAlt")[0].value;
+            data.photoTitle = $("#photoTitle")[0].value;
+
+            storage.set('config', data, function (error) {
+                if (error) throw error;
+            });
+        }
+
+        function restoreSettings() {
+            var storage = require('electron-json-storage');
+
+            storage.get('config', function (error, data) {
+                if (error) throw error;
+                if (Object.keys(data).length === 0) return;
+
+                $("#photoSize")[0].value = data.photoSize;
+                $("#photoAlt")[0].value = data.photoAlt;
+                $("#photoTitle")[0].value = data.photoTitle;
+            });
+        }
+
         function pasteFromClipboard() {
             var clipboard = require('electron').clipboard;
             $("#photoLink")[0].value = clipboard.readText();
         }
 
         function convert() {
+            storeSettings();
+
             if (!$("#photoLink")[0].value) {
                 $('#errorModal').modal('show');
                 return;
             }
             $('#processingModal').modal('show');
-            getOgImageUrl()
+            getOgImageUrl();
         }
 
         function getOgImageUrl() {
@@ -210,6 +238,7 @@
         }
 
         disableZoom();
+        restoreSettings();
     </script>
 </body>
 
