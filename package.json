@@ -10,7 +10,7 @@
     "build-linux": "electron-packager ./src GooglePhotoMarkdowner --platform=linux --arch=x64 --overwrite"
   },
   "devDependencies": {
-    "electron": "^7.2.4",
+    "electron": "^11.5.0",
     "electron-packager": "^12.1.0"
   }
 }
